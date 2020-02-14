@@ -5,8 +5,8 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Daftar Mata Pelajaran
-                <a href="{{route('mapel.create')}}" class="btn btn-primary float-right btn-sm">Tambah Data </a>
+                <div class="card-header">Daftar Siswa
+                <a href="{{route('siswa.create')}}" class="btn btn-primary float-right btn-sm">Tambah Data </a>
             </div>
 
 
@@ -23,21 +23,31 @@
                                 <thead>
                                 <tr>
                                 <th>Nomor</th>
-                                <th>Nama mapel</th>
+                                <th>Nis</th>
+                                <th>Nama Siswa</th>
+                                <th>Alamat</th>
+                                <th>kelas</th>
+                                <th>Mata Pelajaran</th>
                                 <th colspan="3">Aksi</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 @php $no=1; @endphp
-                                @foreach($mapel as $data)
+                                @foreach($siswa as $data)
                                 <tr>
                                         <td>{{$no ++}}</td>
+                                        <td>{{$data->nis}}</td>
                                         <td>{{$data->nama}}</td>
-                                <form action="{{route('mapel.destroy',$data->id)}}" method="POST">
+                                        <td>{{$data->alamat}}</td>
+                                        <td>{{$data->kelas}}</td>
+                                        <td>@foreach ($data->mapel as $value)
+                                        <li>{{$value->nama}}</li>
+                                        @endforeach</td>
+                                <form action="{{route('siswa.destroy',$data->id)}}" method="POST">
                                     @csrf
                                     @method('Delete')
-                                <td><a href="{{route('mapel.show',$data->id)}}"class="btn btn-info">Show</td></a>
-                                <td><a href="{{route('mapel.edit',$data->id)}}"class="btn btn-success">Edit</td></a>
+                                <td><a href="{{route('siswa.show',$data->id)}}"class="btn btn-info">Show</td></a>
+                                <td><a href="{{route('siswa.edit',$data->id)}}"class="btn btn-success">Edit</td></a>
                                 <td><button type="submit" onclick="return confirm('apakah anda yakin?');" class="btn btn-danger">Delete</button></td>
                                 </tr>
                             </form>

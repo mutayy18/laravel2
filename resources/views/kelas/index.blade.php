@@ -32,7 +32,7 @@
                                 @foreach($kelas as $data)
                                 <tr>
                                         <td>{{$no ++}}</td>
-                                        <td>{{$data->nama}}</td>
+                                        <td>{{$data->kelas}}</td>
                                 <form action="{{route('kelas.destroy',$data->id)}}" method="POST">
                                     @csrf
                                     @method('Delete')

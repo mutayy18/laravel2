@@ -22,5 +22,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 //Crud
 //Route::group(['prefix' => 'admin']);
 Route::resource('kelas','KelasController');
-//Crud mapel
-Route::resource('mapel','MataPelajaranController');
+Route::resource('mapel','MapelController'); //Crud mapel
+Route::resource('siswa','SiswaController');

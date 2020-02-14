@@ -10,7 +10,7 @@
 
                     <div class="form group">
                         <label>Kelas</label>
-                        <input type="text" name="mapel" value="{{ $mapel->mapel }}" class="form-control" readonly>
+                        <input type="text" name="nama" value="{{ $mapel->nama }}" class="form-control" readonly>
                     </div>
                         <div class="form-group">
                             <a href="{{url()->previous()}}" class="btn btn-primary">Kembali</a>

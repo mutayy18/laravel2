@@ -13,7 +13,7 @@
                     @method('PATCH')
                     <div class="form group">
                         <label>Kelas</label>
-                        <input type="text" name="mapel" value="{{ $mapel->mapel }}" class="form-control" required>
+                        <input type="text" name="nama" value="{{ $mapel->nama }}" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Ubah</button>
