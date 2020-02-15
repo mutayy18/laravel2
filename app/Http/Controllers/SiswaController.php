@@ -6,7 +6,7 @@ use App\Siswa;
 use App\Kelas;
 use Illuminate\Http\Request;
 use DB;
-use App\mapel;
+use App\Mapel;
 
 class SiswaController extends Controller
 {
@@ -89,7 +89,8 @@ class SiswaController extends Controller
         $kelas = Kelas::all();
         $siswa = Siswa::findOrFail($id);
         $mapel = Mapel::all();
-        return view('siswa.edit',compact('siswa','kelas','mapel'));
+        $selected = $siswa->mapel->pluck('id')->toArray();
+        return view('siswa.edit',compact('siswa','selected','kelas','mapel'));
     }
 
     /**
@@ -122,6 +123,8 @@ class SiswaController extends Controller
     {
         //
         $siswa = Siswa::findOrFail($id)->delete();
+        $siswa->mapel()->detach();
+        $siswa->delete();
         return redirect()->route('siswa.index');
     }
 }
